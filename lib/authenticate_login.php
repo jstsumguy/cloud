@@ -12,7 +12,15 @@
 
 		if(isset($username) && isset($password)) {
 			$results = Authenticator::authenticate($username, $password);
-			echo $results;
+			$hash = $results[0]["hash"];
+			if(password_verify($password, $hash)) {
+				session_start();
+				$_SESSION["uid"] = $results[0]["_id"];
+				echo json_encode($results[0]["_id"]);
+			}
+			else {
+				echo json_encode("fail");
+			}
 		}
 	}
 

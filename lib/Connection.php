@@ -15,8 +15,8 @@
 		private function __construct() {
 			$dns = sprintf("mysql:host=%s;dbname=%s;charset=utf8;", HOST, DB);
 			$this->connection = new PDO($dns, USER, PASSWORD);
-			if($this->connection != false) {
-				error_log("Connection established");
+			if($this->connection == false) {
+				die("Could not establish connection");
 			}
 		}
 
