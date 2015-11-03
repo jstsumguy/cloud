@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	$uid = $_SESSION['uid'] || null;
 ?>
 <html>
 <head>
@@ -17,7 +16,7 @@
 	<div class="side-bar">
 		<ul>
 			<?php
-				if($uid != null) {
+				if(isset($_SESSION['uid'])) {
 				echo '<li id="show-upload" class="list-icon">Upload</li>
 					<li id="files" class="list-icon">Files</li>
 					<li id="photos" class="list-icon">Photos</li>
@@ -29,7 +28,7 @@
 
 	<div class="main">
 		<?php
-			if($uid != null) {
+			if(isset($_SESSION['uid'])) {
 				echo '<form id="upload-form" action="./lib/upload_file.php" method="post" enctype="multipart/form-data">
 							<h2>Upload Files</h2>
 							<input type="file" name="upfile" id="file">
@@ -41,13 +40,13 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title">Modal title</h4>
+									<h4 class="modal-title">Download File</h4>
 								</div>
 								<div class="modal-body">
-									<form id="download-form" action="../lib/download.php" method="post">
+									<form id="download-form" action="./lib/download.php" method="post">
 											<h2>Are you sure you want to download?</h2>
-											<input type="hidden" name="id">
-											<button id="upload-btn" type="submit">Download</button>
+											<input type="hidden" id="download_id" name="id">
+											<button id="download-btn" type="submit">Download</button>
 									</form>
 								</div>
 								<div class="modal-footer">

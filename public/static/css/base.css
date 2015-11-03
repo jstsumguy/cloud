@@ -95,6 +95,14 @@ button.download-btn {
     cursor: pointer;
     border:none;
 }
+button#download-btn {
+	background-color: #00FF99;
+	color: white;
+	border: 0;
+	border-radius: 4px;
+	font-size: 1.3em;
+	margin-top: 15px;
+}
 p.file-item {
 	width: 100%;
 	padding: 4px;

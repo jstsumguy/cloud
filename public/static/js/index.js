@@ -37,13 +37,13 @@ $(document).ready(function() {
 			type: 'get',
 			success: function(response) {
 				data = JSON.parse(response);
+				console.log(data);
 				$('#file-container').empty();
 				for(i=0; i < data.length; i++) {
-					$('#file-container').append('<tr class="file-item">' +
-						'<td>' + data[i]['name'] + '</td>' +
+					$('#file-container').append('<tr class="file-item" id="' + data[i]['_id'] + '">' +
+						'<td>' + data[i]['name'].slice(0, data[i]['name'].indexOf('.')) + '</td>' +
 						'<td>' + data[i]['type'] + '</td>' +
 						'<td>' + data[i]['created'] + '</td>'
-						+ '<td><button id="' + data[i]['_id'] + '" class="download-btn">Download</button></td>'
 					+ '</tr>');
 				}
 				$('table').css('display', 'block');
@@ -51,9 +51,15 @@ $(document).ready(function() {
 		})
 	});
 
-	$('.download-btn').on('click', function() {
+	$( "table" ).on('click', 'tbody tr', function() {
 		console.log('clicked');
-		$('download-modal').modal('toggle');
+		id = $(this).attr('id');
+		$('#download-modal').modal('toggle');
+		$('#download_id').val(id);
+	})
+
+	$('#download-btn').on('click', function() {
+		$('#download-modal').modal('toggle');
 	})
 
 	$('#show-upload').on('click', function() {
