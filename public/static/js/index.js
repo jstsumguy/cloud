@@ -20,12 +20,7 @@ $(document).ready(function() {
 			data: data,
 			success: function(response) {
 				data = JSON.parse(response);
-				if(data.indexOf("fail") > -1) {
-					console.log("something went wrong");
-				}
-				else {
-					window.location.reload(true);
-				}
+				window.location.reload(true);
 			}
 		})
 	});
