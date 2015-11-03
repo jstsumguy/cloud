@@ -14,7 +14,7 @@ $(document).ready(function() {
 		data['username'] = username;
 		data['password'] = password;
 		$.ajax({
-			url: '../lib/authenticate_login.php',
+			url: '../../lib/authenticate_login.php',
 			type: 'post',
 			dataType: 'json',
 			data: data,
@@ -33,7 +33,7 @@ $(document).ready(function() {
 	$('#files').on('click', function() {
 		$('#upload-form').css('display', 'none');
 		$.ajax({
-			url: '../lib/get_files.php',
+			url: '../../lib/get_files.php',
 			type: 'get',
 			success: function(response) {
 				data = JSON.parse(response);
