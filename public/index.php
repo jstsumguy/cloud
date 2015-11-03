@@ -30,7 +30,7 @@
 	<div class="main">
 		<?php
 			if($uid != null) {
-				echo '<form id="upload-form" action="../lib/upload_file.php" method="post" enctype="multipart/form-data">
+				echo '<form id="upload-form" action="./lib/upload_file.php" method="post" enctype="multipart/form-data">
 							<h2>Upload Files</h2>
 							<input type="file" name="upfile" id="file">
 							<button id="upload-btn" type="submit">Upload</button>
