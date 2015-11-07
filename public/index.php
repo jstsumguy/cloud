@@ -18,15 +18,19 @@
 			<?php
 				if(isset($_SESSION['uid'])) {
 				echo '<li id="show-upload" class="list-icon">Upload</li>
-					<li id="files" class="list-icon">Files</li>
-					<li id="photos" class="list-icon">Photos</li>
-					<li id="music" class="list-icon">Music</li>'; 
+					<li id="files" class="list-icon">Files</li>'; 
 				} 
 			?>
 		</ul>	
 	</div>
 
 	<div class="main">
+		<div class="intro">
+			<p>Will's Cloud Server</p>
+		</div>
+		<div class="cloud">
+			<img src="static/img/cloud.png">
+		</div>
 		<?php
 			if(isset($_SESSION['uid'])) {
 				echo '<form id="upload-form" action="./lib/upload_file.php" method="post" enctype="multipart/form-data">

@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
 	$('.list-icon').on('click', function() {
+		$('div.intro').css('display', 'none');
+		$('div.cloud').css('display', 'none');
 		siblings = $(this).siblings().css('left', '0px');
 		$(this).animate({
 			left: '70px',
