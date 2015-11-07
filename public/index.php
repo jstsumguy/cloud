@@ -94,8 +94,9 @@
 					</form>';
 			}
 		?>
-		<table class="table table-hover" style="display: none;">
+		<table class="table table-hover table-stripped" style="display: none;">
 			<thead>
+				<th>#</th>
 				<th>Name</th>
 				<th>Type</th>
 				<th>Created</th>

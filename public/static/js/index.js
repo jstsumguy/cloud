@@ -1,5 +1,15 @@
 $(document).ready(function() {
 
+	function formatDateTimeString(s) {
+		var monthNames = ["January", "February", "March", "April", "May", "June", 
+		"July", "August", "September", "October", "November", "December" ];
+		
+		d = s.slice(0, s.indexOf(' ')).split('-');
+		mon = parseInt(d[1]);
+		formatted_date_str = monthNames[mon - 1].slice(0, 3) + ' ' + d[2] + ', ' + d[0];
+		return formatted_date_str;
+	}
+
 	$('.list-icon').on('click', function() {
 		$('div.intro').css('display', 'none');
 		$('div.cloud').css('display', 'none');
@@ -38,9 +48,10 @@ $(document).ready(function() {
 				$('#file-container').empty();
 				for(i=0; i < data.length; i++) {
 					$('#file-container').append('<tr class="file-item" id="' + data[i]['_id'] + '">' +
+						'<td>' + (i+1) + '</td>' +
 						'<td>' + data[i]['name'].slice(0, data[i]['name'].indexOf('.')) + '</td>' +
 						'<td>' + data[i]['type'] + '</td>' +
-						'<td>' + data[i]['created'] + '</td>'
+						'<td>' + formatDateTimeString(data[i]['created']) + '</td>'
 						+ '<td><button class="delete-button" id="' + data[i]['_id'] + '">' + 'Delete</button></td>'
 					+ '</tr>');
 				}

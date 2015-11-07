@@ -85,7 +85,7 @@ button#login-btn {
 form#upload-form {
 	display: none;
 	color: white;
-	width: 400px;
+	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	border: 0;
@@ -129,6 +129,19 @@ p.file-item {
 	border-radius: 9px;
 	color: white;
 	font-size: 1.4em;
+}
+table {
+	margin-top: 5%;
+	margin-right: auto;
+	margin-left: auto;
+}
+table img {
+	height: 10em;
+    margin: auto;
+    display: block;
+}
+table thead th {
+	font-size: 1.7em;
 }
 
 
