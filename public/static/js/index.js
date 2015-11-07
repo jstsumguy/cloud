@@ -39,6 +39,7 @@ $(document).ready(function() {
 						'<td>' + data[i]['name'].slice(0, data[i]['name'].indexOf('.')) + '</td>' +
 						'<td>' + data[i]['type'] + '</td>' +
 						'<td>' + data[i]['created'] + '</td>'
+						+ '<td><button class="delete-button" id="' + data[i]['_id'] + '">' + 'Delete</button></td>'
 					+ '</tr>');
 				}
 				$('table').css('display', 'block');
@@ -46,11 +47,22 @@ $(document).ready(function() {
 		})
 	});
 
-	$( "table" ).on('click', 'tbody tr', function() {
+	$( "table" ).on('click', 'tbody tr td', function() {
 		console.log('clicked');
-		id = $(this).attr('id');
-		$('#download-modal').modal('toggle');
-		$('#download_id').val(id);
+		id = null;
+		if($(this).children()[0] == undefined) {
+			id = $(this).parent().attr('id');
+			console.log('id ' + id);
+			$('#download-modal').modal('toggle');
+			$('#download_id').val(id);
+		}
+		else {
+			$('#delete-modal').modal('toggle');
+			id = $(this).find('button').attr('id');
+			console.log('id ' + id);
+			$('#delete-modal').modal('show');
+			$('#delete').val(id);
+		}
 	})
 
 	$('#download-btn').on('click', function() {
