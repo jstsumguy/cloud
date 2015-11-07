@@ -25,15 +25,18 @@
 	</div>
 
 	<div class="main">
-		<div class="intro">
-			<p>Will's Cloud Server</p>
-		</div>
-		<div class="cloud">
-			<img src="static/img/cloud.png">
-		</div>
 		<?php
 			if(isset($_SESSION['uid'])) {
-				echo '<form id="upload-form" action="./lib/upload_file.php" method="post" enctype="multipart/form-data">
+				echo '
+				<div class="intro">
+					<p>Wills Cloud Server</p>
+				</div>
+
+				<div class="cloud">
+					<img src="static/img/cloud.png">
+				</div>
+
+				<form id="upload-form" action="./lib/upload_file.php" method="post" enctype="multipart/form-data">
 							<h2>Upload Files</h2>
 							<input type="file" name="upfile" id="file">
 							<button id="upload-btn" type="submit">Upload</button>
