@@ -1,4 +1,10 @@
 <?php 
+	session_start();
+	if(!isset($_SESSION['uid'])) {
+		// TODO: proper error page
+		header('Location: '. '../index.php');
+		die("Not authenticated");
+	}
 	include_once("Connection.php");
 	// session_start();
 
